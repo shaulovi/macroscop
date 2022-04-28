@@ -1,53 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <!-- добавляем русский язык -->
-  <meta charset="utf-8">
   <head>
-    <title>Простая страница на Vue.js</title>
-    <!-- подключаем фреймворк -->
+    <title>Тестовая страница</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <meta name="description" content="API test">
+    <meta name="author" content="Ilya A. Shaulov">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <!-- создаём блок, к которому будет привязано приложение -->
-    <div id="app">
-      <!-- показываем, что надо вывести что-то на экран -->
-      {{ message }}
+    <h1>Проверка работоспособности API</h1>
+    <div id="camera">
+      <iframe src="http://127.0.0.1:8080/video?channelid=2ce0c92a-1627-4cab-af73-313d13453d60&login=root&password=" width="640" height="480">
+        Camera
+     </iframe>
     </div>
-
-    <!-- создаём новый блок -->
-    <div id="app-2">
-      <p>{{ message }}</p>
-      <!-- делаем внутри него кнопку и привязываем к ней обработчик -->
-      <button v-on:click="reverseMessage">Перевернуть сообщение</button>
+    <div id="camera">
+      <iframe src="http://127.0.0.1:8080/video?channelid=5520a7bc-8056-4674-ac6f-868d17541ee4&login=root&password=" width="640" height="480">
+        Camera
+     </iframe>
     </div>
-
-    <!-- начинаем писать на Vue.js -->
-    <script>
-      // создаём новое приложение для первого блока
-      var app = new Vue({
-        // привязываем его через название
-        el: "#app",
-        // пишем сообщение, которое нужно вывести
-        data: {
-          message: "Привет, это журнал «Код»!"
-        }
-      });
-
-      // создаём новое приложение
-      var app2 = new Vue({
-        el: '#app-2',
-        data: {
-          message: 'Привет, это снова «Код»!'
-        },
-        // пишем метод
-        methods: {
-          // при нажатии — переворачиваем строку задом наперёд и наоборот
-          reverseMessage: function () {
-            // в любой момент можно использовать код на JavaScript 
-            this.message = this.message.split('').reverse().join('')
-          }
-        }
-      })
     </script>
   </body>
 </html>
